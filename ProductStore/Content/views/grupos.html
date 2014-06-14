@@ -1,0 +1,83 @@
+<div ng-hide="true" class="alert alert-warning">
+    Algunos Partidos fueron jugados pero todavia no se cargaron sus resutlados.
+</div>
+<div ng-repeat="p in predictions">
+<h3 class="sub-header">Grupo {{p.Letter}} <small></small></h3>
+<table class="table">
+	<thead>
+        <tr>
+          <th class="col-sm-2">Fecha</th>
+          <th class="col-sm-2">Local</th>
+          <th class="col-sm-1" style="width: 10px">L</th>
+          <th class="col-sm-1" style="width: 10px">E</th>
+          <th class="col-sm-1" style="width: 10px">V</th>
+          <th class="col-sm-2" style="text-align: right">Visitante</th>
+          <th class="col-sm-1"></th>
+          <th class="col-sm-5" style="text-align: center">Puntos Ganados</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="m in p.Matches" ng-class="{danger: m.PuntosGanados == 0, success: m.PuntosGanados > 0}">
+          <td class="groupDateText">{{m.Date |  date : 'EEE, d MMM - h:mm a'}}</td>
+          <td><!--<img src="http://www.abogadosenaccidentes.com/img/flag-ar.png">--> {{m.TeamL}}</td>
+          <td>
+              <span ng-show="m.Resultado == null && m.Prediccion == 'L'" class="glyphicon glyphicon-remove" style="color: #428bca;"></span> <!-- X:Eleccion -->
+              <span ng-show="m.Resultado == 'L'" class="glyphicon glyphicon-ok" style="color: #5cb85c;"></span> <!-- Tick: Opcion correcta (independiente si lo acerto o no) -->
+              <span ng-show="m.Resultado != 'L' && m.Resultado != null && m.Prediccion == 'L'" class="glyphicon glyphicon-remove" style="color: #d9534f;"></span> <!-- X[roja]: Eligio esta opcion pero no acerto -->
+          </td>
+          <td>
+              <span ng-show="m.Resultado == null && m.Prediccion == 'E'" class="glyphicon glyphicon-remove" style="color: #428bca;"></span> <!-- X:Eleccion -->
+              <span ng-show="m.Resultado == 'E'" class="glyphicon glyphicon-ok" style="color: #5cb85c;"></span> <!-- Tick: Opcion correcta (independiente si lo acerto o no) -->
+              <span ng-show="m.Resultado != 'E' && m.Resultado != null && m.Prediccion == 'E'" class="glyphicon glyphicon-remove" style="color: #d9534f;"></span> <!-- X[roja]: Eligio esta opcion pero no acerto -->
+          </td>
+          <td>
+              <span ng-show="m.Resultado == null && m.Prediccion == 'V'" class="glyphicon glyphicon-remove" style="color: #428bca;"></span> <!-- X:Eleccion -->
+              <span ng-show="m.Resultado == 'V'" class="glyphicon glyphicon-ok" style="color: #5cb85c;"></span> <!-- Tick: Opcion correcta (independiente si lo acerto o no) -->
+              <span ng-show="m.Resultado != 'V' && m.Resultado != null && m.Prediccion == 'V'" class="glyphicon glyphicon-remove" style="color: #d9534f;"></span> <!-- X[roja]: Eligio esta opcion pero no acerto -->
+			<!--<label class="radio-inline">
+  				<input type="radio" ng-model="m.Resultado" value="L" name="{{'match' + m.Id}}">
+  			</label>
+			<label class="radio-inline">
+  				<input type="radio" ng-model="m.Resultado" value="E" name="{{'match' + m.Id}}">
+  			</label>
+			<label class="radio-inline">
+  				<input type="radio" ng-model="m.Resultado" value="V" name="{{'match' + m.Id}}">
+  			</label>-->
+		  </td>
+          <td style="text-align: right">{{m.TeamV}}</td>
+            <td></td>
+          <td style="font-style: italic;text-align: center">
+              <span ng-show="m.PuntosGanados == null">-</span>
+              <span ng-show="m.PuntosGanados != null" ng-class="{'label-danger': (m.PuntosGanados == 0), 'label-success': (m.PuntosGanados > 0)}" class="label">{{m.PuntosGanados > 0? ('+ ' + m.PuntosGanados):m.PuntosGanados}}</span></td>
+        </tr>
+      </tbody>
+    </table>
+ </div>
+ <table class="table">
+    <thead>
+        <tr>
+          <th class="col-sm-2"></th>
+          <th class="col-sm-2"></th>
+          <th class="col-sm-1" style="width: 10px"></th>
+          <th class="col-sm-1" style="width: 10px"></th>
+          <th class="col-sm-1" style="width: 10px"></th>
+          <th class="col-sm-1"></th>
+          <th class="col-sm-2"></th>
+          <th class="col-sm-5"></th>
+        </tr>
+      </thead>
+    <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td style="text-align: center"><span class="groupDateText">Subtotal Grupos:</span><span style="font-weight: bold;"> {{subtotal}}</span></td>
+        </tr>
+      </tbody>
+  </table>
+
+

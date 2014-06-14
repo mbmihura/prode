@@ -1,0 +1,330 @@
+﻿<table style="margin: auto;">
+    <thead>
+        <tr>
+            <th class="col-sm-1">Octavos</th>
+            <th class="col-sm-1">Cuartos</th>
+            <th class="col-sm-1">Semi</th>
+            <th class="col-sm-1">Final</th>
+            <th class="col-sm-1">Semi</th>
+            <th class="col-sm-1">Cuartos</th>
+            <th class="col-sm-1">Octavos</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="bracket-team-cell brackets-bottom-line">
+                A1: {{matches.A1.Prediccion}} 
+                 <span ng-show="matches.A1.PuntosGanados > 0" class="label label-success">+{{matches.A1.PuntosGanados}}</span>
+                 <span ng-show="matches.A1.PuntosGanados == 0" class="label label-danger">{{matches.A1.PuntosGanados}}</span>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="text-align-right"></td>
+            <td class="text-align-right"></td>
+            <td class="text-align-right bracket-team-cell brackets-bottom-line">
+                <span ng-show="matches.B1.PuntosGanados > 0" class="label label-success">+{{matches.B1.PuntosGanados}}</span>
+                <span ng-show="matches.B1.PuntosGanados == 0" class="label label-danger">{{matches.B1.PuntosGanados}}</span> 
+                 B1: {{matches.B1.Prediccion}}
+
+            </td>
+        </tr>
+         <tr>
+            <td class="brackets-right-line"></td>
+            <td class="bracket-team-cell  brackets-bottom-line">
+                A1B2: {{matches.A1B2.Prediccion}} 
+                 <span ng-show="matches.A1B2.PuntosGanados > 0" class="label label-success">+{{matches.A1B2.PuntosGanados}}</span>
+                 <span ng-show="matches.A1B2.PuntosGanados == 0" class="label label-danger">{{matches.A1B2.PuntosGanados}}</span>
+            </td>
+            <td></td>
+            <td></td>
+            <td class="text-align-right"></td>
+            <td class="text-align-right brackets-right-line bracket-team-cell brackets-bottom-line">
+                <span ng-show="matches.B1A2.PuntosGanados > 0" class="label label-success">+{{matches.B1A2.PuntosGanados}}</span>
+                <span ng-show="matches.B1A2.PuntosGanados == 0" class="label label-danger">{{matches.B1A2.PuntosGanados}}</span> 
+                 B1A2: {{matches.B1A2.Prediccion}}
+            </td>
+            <td class="text-align-right"></td>
+        </tr>
+        <tr>
+            <td class="bracket-team-cell brackets-right-line brackets-bottom-line">
+                B2: {{matches.B2.Prediccion}} 
+                 <span ng-show="matches.B2.PuntosGanados > 0" class="label label-success">+{{matches.B2.PuntosGanados}}</span>
+                 <span ng-show="matches.B2.PuntosGanados == 0" class="label label-danger">{{matches.B2.PuntosGanados}}</span>
+            </td>
+            <td class="brackets-right-line"></td>
+            <td></td>
+            <td></td>
+            <td class="text-align-right brackets-right-line"></td>
+            <td class="text-align-right brackets-right-line"></td>
+            <td class="text-align-right bracket-team-cell brackets-bottom-line">
+                <span ng-show="matches.A2.PuntosGanados > 0" class="label label-success">+{{matches.A2.PuntosGanados}}</span>
+                <span ng-show="matches.A2.PuntosGanados == 0" class="label label-danger">{{matches.A2.PuntosGanados}}</span>
+                 A2: {{matches.A2.Prediccion}}
+            </td>
+        </tr>
+       <tr>
+            <td></td>
+            <td class="brackets-right-line"></td>
+            <td class="bracket-team-cell brackets-bottom-line">
+                A1B2C1D2: {{matches.A1B2C1D2.Prediccion}} 
+                 <span ng-show="matches.A1B2C1D2.PuntosGanados > 0" class="label label-success">+{{matches.A1B2C1D2.PuntosGanados}}</span>
+                <span ng-show="matches.A1B2C1D2.PuntosGanados == 0" class="label label-danger">{{matches.A1B2C1D2.PuntosGanados}}</span>
+            </td>
+            <td></td>
+            <td class="text-align-right brackets-right-line bracket-team-cell brackets-bottom-line">
+                <span ng-show="matches.B1A2D1C2.PuntosGanados > 0" class="label label-success">+{{matches.B1A2D1C2.PuntosGanados}}</span>
+                <span ng-show="matches.B1A2D1C2.PuntosGanados == 0" class="label label-danger">{{matches.B1A2D1C2.PuntosGanados}}</span> 
+                 B1A2D1C2: {{matches.B1A2D1C2.Prediccion}}
+            </td>
+            <td class="text-align-right"></td>
+            <td class="text-align-right"></td>
+        </tr>
+       
+        <tr>
+            <td class="bracket-team-cell brackets-bottom-line">C1: {{matches.C1.Prediccion}} 
+                  <span ng-show="matches.C1.PuntosGanados > 0" class="label label-success">+{{matches.C1.PuntosGanados}}</span>
+                <span ng-show="matches.C1.PuntosGanados == 0" class="label label-danger">{{matches.C1.PuntosGanados}}</span>
+            </td>
+            <td class="brackets-right-line"></td>
+            <td class="brackets-right-line"></td>
+            <td class="brackets-right-line"></td>
+            <td class="text-align-right brackets-right-line"></td>
+            <td class="text-align-right"></td>
+            <td class="text-align-right bracket-team-cell brackets-bottom-line">
+                <span ng-show="matches.D1.PuntosGanados > 0" class="label label-success">+{{matches.D1.PuntosGanados}}</span>
+                <span ng-show="matches.D1.PuntosGanados == 0" class="label label-danger">{{matches.D1.PuntosGanados}}</span> 
+                 D1: {{matches.D1.Prediccion}}
+
+            </td>
+        </tr>
+         <tr>
+            <td class="brackets-right-line"></td>
+            <td class="brackets-right-line bracket-team-cell brackets-bottom-line">
+                C1D2: {{matches.C1D2.Prediccion}} 
+                 <span ng-show="matches.C1D2.PuntosGanados > 0" class="label label-success">+{{matches.C1D2.PuntosGanados}}</span>
+                <span ng-show="matches.C1D2.PuntosGanados == 0" class="label label-danger">{{matches.C1D2.PuntosGanados}}</span>
+            </td>
+            <td class="brackets-right-line"></td>
+            <td class="brackets-right-line"></td>
+            <td class="text-align-right brackets-right-line"></td>
+            <td class="text-align-right brackets-right-line bracket-team-cell brackets-bottom-line">
+                <span ng-show="matches.D1C2.PuntosGanados > 0" class="label label-success">+{{matches.D1C2.PuntosGanados}}</span>
+                <span ng-show="matches.D1C2.PuntosGanados == 0" class="label label-danger">{{matches.D1C2.PuntosGanados}}</span> 
+                 D1C2: {{matches.D1C2.Prediccion}}</td>
+            <td class="text-align-right"></td>
+        </tr>
+        <tr>
+            <td class="bracket-team-cell brackets-right-line brackets-bottom-line">
+                D2: {{matches.D2.Prediccion}} 
+                 <span ng-show="matches.D2.PuntosGanados > 0" class="label label-success">+{{matches.D2.PuntosGanados}}</span>
+                <span ng-show="matches.D2.PuntosGanados == 0" class="label label-danger">{{matches.D2.PuntosGanados}}</span> 
+            </td>
+            <td></td>
+            <td class="brackets-right-line"></td>
+            <td class="brackets-right-line"></td>
+            <td class="text-align-right"></td>
+            <td class="text-align-right brackets-right-line"></td>
+            <td class="text-align-right bracket-team-cell brackets-bottom-line">
+                <span ng-show="matches.C2.PuntosGanados > 0" class="label label-success">+{{matches.C2.PuntosGanados}}</span>
+                <span ng-show="matches.C2.PuntosGanados == 0" class="label label-danger">{{matches.C2.PuntosGanados}}</span> 
+                 C2: {{matches.C2.Prediccion}}
+            </td>
+        </tr>
+         <tr>
+          
+            <td></td>
+            <td></td>
+            <td class="brackets-right-line"></td>
+            <td class="brackets-right-line bracket-team-cell brackets-bottom-line">
+                A1B2C1D2E1F2G1H2: {{matches.A1B2C1D2E1F2G1H2.Prediccion}} 
+                <span ng-show="matches.A1B2C1D2E1F2G1H2.PuntosGanados > 0" class="label label-success">+{{matches.A1B2C1D2E1F2G1H2.PuntosGanados}}</span>
+                <span ng-show="matches.A1B2C1D2E1F2G1H2.PuntosGanados == 0" class="label label-danger">{{matches.A1B2C1D2E1F2G1H2.PuntosGanados}}</span> 
+            </td>
+             <td class="text-align-right"></td>
+            <td class="text-align-right"></td>
+            <td class="text-align-right"></td>
+            
+        </tr>
+
+
+        <tr>
+          
+            <td></td>
+            <td></td>
+            <td class="brackets-right-line"></td>
+            <td class="text-align-right brackets-right-line bracket-team-cell brackets-bottom-line">
+                <span ng-show="matches.B1A2D1C2F1E2H1G2.PuntosGanados > 0" class="label label-success">+{{matches.B1A2D1C2F1E2H1G2.PuntosGanados}}</span>
+                <span ng-show="matches.B1A2D1C2F1E2H1G2.PuntosGanados == 0" class="label label-danger">{{matches.B1A2D1C2F1E2H1G2.PuntosGanados}}</span> 
+                 B1A2D1C2F1E2H1G2: {{matches.B1A2D1C2F1E2H1G2.Prediccion}} 
+            </td>
+             <td class="text-align-right"></td>
+            <td class="text-align-right"></td>
+            <td class="text-align-right"></td>
+            
+        </tr>
+
+
+         <tr>
+            <td class="bracket-team-cell brackets-bottom-line">
+                E1: {{matches.E1.Prediccion}} 
+                 <span ng-show="matches.E1.PuntosGanados > 0" class="label label-success">+{{matches.E1.PuntosGanados}}</span>
+                <span ng-show="matches.E1.PuntosGanados == 0" class="label label-danger">{{matches.E1.PuntosGanados}}</span> 
+            </td>
+            <td></td>
+            <td class="brackets-right-line"></td>
+            <td class="brackets-right-line"></td>
+            <td class="text-align-right"></td>
+            <td class="text-align-right"></td>
+            <td class="text-align-right bracket-team-cell brackets-bottom-line">
+                <span ng-show="matches.F1.PuntosGanados > 0" class="label label-success">+{{matches.F1.PuntosGanados}}</span>
+                <span ng-show="matches.F1.PuntosGanados == 0" class="label label-danger">{{matches.F1.PuntosGanados}}</span>
+                 F1: {{matches.F1.Prediccion}}
+            </td>
+        </tr>
+         <tr>
+            <td class="brackets-right-line"></td>
+            <td class="bracket-team-cell brackets-bottom-line">
+                E1F2: {{matches.E1F2.Prediccion}} 
+                 <span ng-show="matches.E1F2.PuntosGanados > 0" class="label label-success">+{{matches.E1F2.PuntosGanados}}</span>
+                <span ng-show="matches.E1F2.PuntosGanados == 0" class="label label-danger">{{matches.E1F2.PuntosGanados}}</span>
+            </td>
+            <td class="brackets-right-line"></td>
+            <td class="brackets-right-line"></td>
+            <td class="text-align-right"></td>
+            <td class="text-align-right brackets-right-line bracket-team-cell brackets-bottom-line">
+                <span ng-show="matches.F1E2.PuntosGanados > 0" class="label label-success">+{{matches.F1E2.PuntosGanados}}</span>
+                <span ng-show="matches.F1E2.PuntosGanados == 0" class="label label-danger">{{matches.F1E2.PuntosGanados}}</span> 
+                 F1E2: {{matches.F1E2.Prediccion}}
+            </td>
+            <td class="text-align-right"></td>
+        </tr>
+        <tr>
+            <td class="bracket-team-cell brackets-right-line brackets-bottom-line">
+                F2: {{matches.F2.Prediccion}} 
+                <span ng-show="matches.F2.PuntosGanados > 0" class="label label-success">+{{matches.F2.PuntosGanados}}</span>
+                <span ng-show="matches.F2.PuntosGanados == 0" class="label label-danger">{{matches.F2.PuntosGanados}}</span>
+            </td>
+            <td class="brackets-right-line"></td>
+            <td class="brackets-right-line"></td>
+            <td class="brackets-right-line"></td>
+            <td class="text-align-right brackets-right-line"></td>
+            <td class="text-align-right brackets-right-line"></td>
+            <td class="text-align-right bracket-team-cell brackets-bottom-line">
+                <span ng-show="matches.E2.PuntosGanados > 0" class="label label-success">+{{matches.E2.PuntosGanados}}</span>
+                <span ng-show="matches.E2.PuntosGanados == 0" class="label label-danger">{{matches.E2.PuntosGanados}}</span> 
+                 E2: {{matches.E2.Prediccion}}</td>
+        </tr>
+       <tr>
+            <td></td>
+            <td class="brackets-right-line brackets-right-line"></td>
+            <td class="brackets-right-line bracket-team-cell brackets-bottom-line">
+                E1F2G1H2: {{matches.E1F2G1H2.Prediccion}} 
+                 <span ng-show="matches.E1F2G1H2.PuntosGanados > 0" class="label label-success">+{{matches.E1F2G1H2.PuntosGanados}}</span>
+                <span ng-show="matches.E1F2G1H2.PuntosGanados == 0" class="label label-danger">{{matches.E1F2G1H2.PuntosGanados}}</span>
+                </td>
+            <td class="brackets-right-line"></td>
+            <td class="text-align-right brackets-right-line bracket-team-cell brackets-bottom-line">
+                <span ng-show="matches.F1E2H1G2.PuntosGanados > 0" class="label label-success">+{{matches.F1E2H1G2.PuntosGanados}}</span>
+                <span ng-show="matches.F1E2H1G2.PuntosGanados == 0" class="label label-danger">{{matches.F1E2H1G2.PuntosGanados}}</span> 
+                F1E2H1G2: {{matches.F1E2H1G2.Prediccion}}
+            </td>
+            <td class="text-align-right"></td>
+            <td class="text-align-right"></td>
+        </tr>
+       
+        <tr>
+            <td class="bracket-team-cell brackets-bottom-line">
+                G1: {{matches.G1.Prediccion}} 
+                 <span ng-show="matches.G1.PuntosGanados > 0" class="label label-success">+{{matches.G1.PuntosGanados}}</span>
+                <span ng-show="matches.G1.PuntosGanados == 0" class="label label-danger">{{matches.G1.PuntosGanados}}</span>
+            </td>
+            <td class="brackets-right-line"></td>
+            <td></td>
+            <td></td>
+            <td class="text-align-right brackets-right-line"></td>
+            <td class="text-align-right"></td>
+            <td class="text-align-right bracket-team-cell brackets-bottom-line">
+                <span ng-show="matches.H1.PuntosGanados > 0" class="label label-success">+{{matches.H1.PuntosGanados}}</span>
+                <span ng-show="matches.H1.PuntosGanados == 0" class="label label-danger">{{matches.H1.PuntosGanados}}</span>  
+                H1: {{matches.H1.Prediccion}}
+
+            </td>
+        </tr>
+         <tr>
+            <td class="brackets-right-line"></td>
+            <td class="brackets-right-line bracket-team-cell brackets-bottom-line">
+                G1H2: {{matches.G1H2.Prediccion}} 
+                 <span ng-show="matches.G1H2.PuntosGanados > 0" class="label label-success">+{{matches.G1H2.PuntosGanados}}</span>
+                <span ng-show="matches.G1H2.PuntosGanados == 0" class="label label-danger">{{matches.G1H2.PuntosGanados}}</span>
+            </td>
+            <td></td>
+            <td style="text-align: center;text-decoration: underline;"></td>
+            <td class="text-align-right brackets-right-line"></td>
+            <td class="text-align-right brackets-right-line bracket-team-cell brackets-bottom-line">
+                <span ng-show="matches.H1G2.PuntosGanados > 0" class="label label-success">+{{matches.H1G2.PuntosGanados}}</span>
+                <span ng-show="matches.H1G2.PuntosGanados == 0" class="label label-danger">{{matches.H1G2.PuntosGanados}}</span>
+                 H1G2: {{matches.H1G2.Prediccion}}
+            </td>
+            <td class="text-align-right"></td>
+        </tr>
+        <tr>
+            <td class="bracket-team-cell brackets-right-line brackets-bottom-line">
+                H2: {{matches.H2.Prediccion}} 
+                <span ng-show="matches.H2.PuntosGanados > 0" class="label label-success">+{{matches.H2.PuntosGanados}}</span>
+                <span ng-show="matches.H2.PuntosGanados == 0" class="label label-danger">{{matches.H2.PuntosGanados}}</span>
+            </td>
+            <td></td>
+            <td></td>
+            <td class="bracket-team-cell"></td>
+            <td class="text-align-right"></td>
+            <td class="text-align-right brackets-right-line"></td>
+            <td class="text-align-right bracket-team-cell brackets-bottom-line">
+                <span ng-show="matches.G2.PuntosGanados > 0" class="label label-success">+{{matches.G2.PuntosGanados}}</span>
+                <span ng-show="matches.G2.PuntosGanados == 0" class="label label-danger">{{matches.G2.PuntosGanados}}</span> 
+                 G2: {{matches.G1.Prediccion}}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="bracket-team-cell"></td>
+            <td class="text-align-right"></td>
+            <td class="text-align-right"></td>
+            <td class="text-align-right"></td>
+        </tr>
+        </tbody>
+    </table>
+        
+
+<table class="table table-striped" style="width: 50%;margin-left: 60px;">
+	<thead>
+        <tr>
+          <th class="col-sm-1">Categoria</th>
+          <th class="col-sm-1" style="text-align: center;">Pts. Ganados</th>
+        </tr>
+      </thead>
+   <tbody>
+        <tr>
+          <td>Octavos</td>
+          <td style="text-align: center;">{{matches.subtotalOctavos}}</td> 
+     	</tr>
+        <tr>
+          <td>Cuartos</td>
+          <td style="text-align: center;">{{matches.subtotalCuartos}}</td> 
+     	</tr>
+        <tr>
+          <td>Semi</td>
+          <td style="text-align: center;">{{matches.subtotalSemi}}</td> 
+     	</tr>
+        <tr>
+          <td>Final</td>
+          <td style="text-align: center;">{{matches.subtotalFinal}}</td> 
+     	</tr>
+       <tr>
+          <td style="font-weight: bold;">Subtotal Eliminatorias</td>
+          <td style="font-weight: bold;text-align: center;">{{matches.subtotalOctavos + matches.subtotalCuartos + matches.subtotalSemi + matches.subtotalFinal}}</td> 
+     	</tr>
+     </tbody>
+</table>
+
