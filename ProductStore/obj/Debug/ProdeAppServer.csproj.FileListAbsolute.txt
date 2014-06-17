@@ -30,3 +30,4 @@ C:\Users\Martín\Downloads\ASP. NET Web API Tutorial 02 CRUD Operations\C#\Produ
 C:\Users\Martín\Downloads\ASP. NET Web API Tutorial 02 CRUD Operations\C#\ProductStore\bin\System.Web.WebPages.xml
 C:\Users\Martín\Downloads\ASP. NET Web API Tutorial 02 CRUD Operations\C#\ProductStore\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Martín\Downloads\ASP. NET Web API Tutorial 02 CRUD Operations\C#\ProductStore\bin\System.Web.WebPages.Razor.xml
+C:\Users\Martín\Downloads\ASP. NET Web API Tutorial 02 CRUD Operations\C#\ProductStore\bin\Images\background.jpg

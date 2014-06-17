@@ -206,7 +206,9 @@
     <Content Include="Content\views\mejores.html" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Images\background.jpg" />
+    <Content Include="Images\background.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\brasil_2014.jpg" />
     <Content Include="Images\brasil_2014_logo.png" />
     <Content Include="Images\button-default-disabled-loading.gif" />
