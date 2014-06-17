@@ -2,7 +2,7 @@
 
 angular.module('prodeApp')
   .controller('MainCtrl', function ($scope, $routeParams, Session) {
-      Session.create("", $routeParams.accessToken, "we");
+      Session.create("", $routeParams.accessToken, "");
       $scope.username = Session.userName;
   });
 
@@ -73,6 +73,9 @@ angular.module('prodeApp')
 
 angular.module('prodeApp')
     .controller('LoginCtrl', function ($scope, $rootScope, AUTH_EVENTS, AuthService) {
+
+        Session.createFromUserId($routeParams.accessToken);
+          
         $scope.credentials = {
             username: '',
             password: ''

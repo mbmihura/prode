@@ -11,13 +11,8 @@ namespace Prode.Controllers
     {
         public ActionResult Index()
         {
-            if (this.ControllerContext.HttpContext.Request.Cookies.AllKeys.Contains("userId"))
-            {
                 //string cookie = this.ControllerContext.HttpContext.Request.Cookies["currentUser"].Value;
                 return View();
-            }
-            else
-                return RedirectToAction("Login");
         }
         [HttpGet]
         public ActionResult Login()

@@ -40,8 +40,30 @@ angular.module('prodeApp').
        }]);
 
 angular.module('prodeApp').
-       service('Session', function ($cookies) {
+       service('Session', function ($cookies, $http) {
            this.create = function (sessionId, userId, userName) {
+               this.id = sessionId;
+               this.userId = userId;
+               this.userName = userName;
+
+               $cookies.session = {
+                   id: this.id,
+                   userId: this.userId,
+                   userName: this.userName
+               };
+           };
+
+           this.createFromUserId = function (userId) {
+               $http({ method: 'GET', url: '/api/authentication?token=' + userId }).
+                success(function (data, status, headers, config) {
+                    this.id = sessionId;
+                    this.userId = userId;
+                    this.userName = userName;
+                }).
+                error(function (data, status, headers, config) {
+                    alert('can not connect. browser incopatibility')
+                });
+
                this.id = sessionId;
                this.userId = userId;
                this.userName = userName;
