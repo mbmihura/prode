@@ -45,15 +45,13 @@ namespace Prode.Models
             {
                 GroupMatchPrediction p = new GroupMatchPrediction()
                 {
-                    Id = Convert.ToInt32(rdr["matchId"]),
+                    Id = Convert.ToInt32(rdr["situacionId"]),
                     Letter = Convert.ToString(rdr["groupLetter"]),
                     TeamL = Convert.ToString(rdr["teamL"]),
                     TeamV = Convert.ToString(rdr["teamV"]),
                 };
                 if (rdr["prediccion"] != DBNull.Value)
                     p.Prediccion = Convert.ToString(rdr["prediccion"]);
-                if (rdr["enable"] != DBNull.Value)
-                    p.Enable = Convert.ToBoolean(rdr["enable"]);
                 if (rdr["resultado"] != DBNull.Value)
                     p.Resultado = Convert.ToString(rdr["resultado"]);
                 if (rdr["date"] != DBNull.Value)
