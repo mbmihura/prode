@@ -14,7 +14,7 @@
     </RootPath>
     <RootNamespace>ProdeSQLServer</RootNamespace>
     <AssemblyName>ProdeSQLServer</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
+    <ModelCollation>1033,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -22,6 +22,8 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <SqlServerVerification>False</SqlServerVerification>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -53,5 +55,22 @@
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Predicciones.sql" />
+    <Build Include="dbo\Tables\Situaciones.sql" />
+    <Build Include="dbo\Tables\Usuarios.sql" />
+    <Build Include="dbo\Tables\PosiblesResultados.sql" />
+    <Build Include="dbo\Stored Procedures\insertMatchesToGroup.sql" />
+    <Build Include="dbo\Stored Procedures\getGroupsMatchesPredictionsForUserId.sql" />
+    <Build Include="dbo\Stored Procedures\getAllPosibleResults.sql" />
+    <Build Include="dbo\Stored Procedures\InsertPredictionsForGroups.sql" />
+    <Build Include="dbo\Stored Procedures\insertResultForGroup.sql" />
+    <Build Include="dbo\Stored Procedures\getBracketsPredictionsForUserId.sql" />
+    <Build Include="dbo\Stored Procedures\InsertPredictionsForBrackets.sql" />
+    <Build Include="dbo\Stored Procedures\getUserDataForUserId.sql" />
   </ItemGroup>
 </Project>

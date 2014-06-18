@@ -8,7 +8,7 @@ angular.module('prodeApp').
                { login: { method: "PUT", username: '@username', password: "@password" } }
           );
        }])
-        .factory('AuthService', function ($http, Session) {
+       .factory('AuthService', function ($http, Session) {
             return {
                 login: function (credentials) {
                     return $http
@@ -52,33 +52,29 @@ angular.module('prodeApp').
                    userName: this.userName
                };
            };
-
+           
+           var session = this;
            this.createFromUserId = function (userId) {
                $http({ method: 'GET', url: '/api/authentication?token=' + userId }).
-                success(function (data, status, headers, config) {
-                    this.id = sessionId;
-                    this.userId = userId;
-                    this.userName = userName;
+                success(function (user, status, headers, config) {
+                    session.id = user.Id;
+                    session.userId = user.Id;
+                    session.userName = user.Username;
+
+                    $cookies.id= session.id;
+                    $cookies.userId= session.userId;
+                    $cookies.userName= session.userName;
                 }).
                 error(function (data, status, headers, config) {
                     alert('can not connect. browser incopatibility')
                 });
-
-               this.id = sessionId;
-               this.userId = userId;
-               this.userName = userName;
-
-               $cookies.session = {
-                   id: this.id,
-                   userId: this.userId,
-                   userName: this.userName
-               };
            };
 
            this.getSession = function () {
-               this.id = $cookies.session.id;
-               this.userId = $cookies.session.userId;
-               this.userName = $cookies.session.userName;
+               this.id = $cookies.id;
+               this.userId = $cookies.userId;
+               this.userName = $cookies.userName;
+               return this;
            };
 
            this.destroy = function () {

@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{01B1D1
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ProdeSQLServer", "ProdeSQLServer\ProdeSQLServer.sqlproj", "{8D060288-70FE-4526-873D-6BC489359233}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,12 @@ Global
 		{CD7B1307-F089-4636-AE91-2D7FA349EE03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD7B1307-F089-4636-AE91-2D7FA349EE03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD7B1307-F089-4636-AE91-2D7FA349EE03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D060288-70FE-4526-873D-6BC489359233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D060288-70FE-4526-873D-6BC489359233}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D060288-70FE-4526-873D-6BC489359233}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8D060288-70FE-4526-873D-6BC489359233}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D060288-70FE-4526-873D-6BC489359233}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D060288-70FE-4526-873D-6BC489359233}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

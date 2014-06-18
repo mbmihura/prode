@@ -2,7 +2,7 @@
 
 angular.module('prodeApp')
   .controller('MainCtrl', function ($scope, $routeParams, Session) {
-      Session.create("", $routeParams.accessToken, "");
+      Session.createFromUserId($routeParams.accessToken);
       $scope.username = Session.userName;
   });
 
@@ -15,7 +15,7 @@ angular.module('prodeApp')
 
 angular.module('prodeApp')
   .controller('GroupsPredictionsCtrl', function ($scope, $timeout, GroupsPredicction, Session) {
-      var response = GroupsPredicction.query({ userId: Session.userId }, function () {
+      var response = GroupsPredicction.query({ userId: Session.getSession().userId }, function () {
           $scope.predictions = [{
               Letter: 'A',
               Matches: $.grep(response, function (n, i) {
