@@ -2,8 +2,10 @@
 
 angular.module('prodeApp')
   .controller('MainCtrl', function ($scope, $routeParams, Session) {
-      Session.createFromUserId($routeParams.accessToken);
-      $scope.username = Session.userName;
+      Session.createFromUserId($routeParams.accessToken, function ()
+      { 
+          $scope.username = Session.userName;
+      });
   });
 
 angular.module('prodeApp')

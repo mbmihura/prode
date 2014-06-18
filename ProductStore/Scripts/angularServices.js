@@ -54,7 +54,7 @@ angular.module('prodeApp').
            };
            
            var session = this;
-           this.createFromUserId = function (userId) {
+           this.createFromUserId = function (userId,callback) {
                $http({ method: 'GET', url: '/api/authentication?token=' + userId }).
                 success(function (user, status, headers, config) {
                     session.id = user.Id;
@@ -63,7 +63,10 @@ angular.module('prodeApp').
 
                     $cookies.id= session.id;
                     $cookies.userId= session.userId;
-                    $cookies.userName= session.userName;
+                    $cookies.userName = session.userName;
+
+                    if (callback)
+                        callback();
                 }).
                 error(function (data, status, headers, config) {
                     alert('can not connect. browser incopatibility')
