@@ -1,0 +1,71 @@
+18/06/2014 10:29:58	This log contains information about the import schema operation into project 'ProdeSQLServer' on computer 'MARTIN-PC' by user 'Martín'.
+18/06/2014 10:29:58	Import of database schema has started.
+18/06/2014 10:30:15	Gathering database options
+18/06/2014 10:30:15	Gathering users
+18/06/2014 10:30:15	Gathering roles
+18/06/2014 10:30:15	Gathering application roles
+18/06/2014 10:30:15	Gathering role memberships
+18/06/2014 10:30:15	Gathering filegroups
+18/06/2014 10:30:15	Gathering full-text catalogs
+18/06/2014 10:30:15	Gathering assemblies
+18/06/2014 10:30:15	Gathering certificates
+18/06/2014 10:30:15	Gathering asymmetric keys
+18/06/2014 10:30:15	Gathering symmetric keys
+18/06/2014 10:30:15	Gathering encrypted symmetric keys
+18/06/2014 10:30:15	Gathering schemas
+18/06/2014 10:30:15	Gathering XML schema collections
+18/06/2014 10:30:15	Gathering user-defined data types
+18/06/2014 10:30:15	Gathering user-defined types
+18/06/2014 10:30:15	Gathering table types
+18/06/2014 10:30:15	Gathering unique keys for table types
+18/06/2014 10:30:15	Gathering primary keys for table types
+18/06/2014 10:30:15	Gathering check constraints for table types
+18/06/2014 10:30:15	Gathering default constraints for table types
+18/06/2014 10:30:16	Gathering partition functions
+18/06/2014 10:30:16	Gathering partition schemes
+18/06/2014 10:30:16	Gathering functions
+18/06/2014 10:30:16	Gathering encrypted functions
+18/06/2014 10:30:16	Gathering aggregates
+18/06/2014 10:30:16	Gathering procedures
+18/06/2014 10:30:16	Gathering encrypted procedures
+18/06/2014 10:30:16	Gathering tables
+18/06/2014 10:30:16	Gathering primary keys
+18/06/2014 10:30:16	Gathering unique constraints
+18/06/2014 10:30:16	Gathering foreign keys
+18/06/2014 10:30:16	Gathering default constraints
+18/06/2014 10:30:16	Gathering check constraints
+18/06/2014 10:30:16	Gathering views
+18/06/2014 10:30:16	Gathering encrypted views
+18/06/2014 10:30:16	Gathering indexes
+18/06/2014 10:30:16	Gathering statistics
+18/06/2014 10:30:16	Gathering full-text index stoplists
+18/06/2014 10:30:16	Gathering full-text indexes
+18/06/2014 10:30:16	Gathering spatial indexes
+18/06/2014 10:30:16	Gathering XML indexes
+18/06/2014 10:30:16	Gathering encrypted triggers
+18/06/2014 10:30:16	Gathering triggers
+18/06/2014 10:30:16	Gathering encrypted and clr ddl triggers
+18/06/2014 10:30:16	Gathering ddl triggers
+18/06/2014 10:30:16	Gathering synonyms
+18/06/2014 10:30:16	Gathering defaults
+18/06/2014 10:30:16	Gathering data constraint uddt bindings
+18/06/2014 10:30:16	Gathering rules
+18/06/2014 10:30:16	Gathering data constraint uddt bindings
+18/06/2014 10:30:16	Gathering message types
+18/06/2014 10:30:16	Gathering queues
+18/06/2014 10:30:16	Gathering contracts
+18/06/2014 10:30:16	Gathering services
+18/06/2014 10:30:16	Gathering event notifications
+18/06/2014 10:30:16	Gathering remote service bindings
+18/06/2014 10:30:16	Gathering broker priorities
+18/06/2014 10:30:16	Gathering signatures
+18/06/2014 10:30:16	Gathering data compression options
+18/06/2014 10:30:16	Gathering extended properties
+18/06/2014 10:30:20	Gathering credentials
+18/06/2014 10:30:20	Gathering logins
+18/06/2014 10:30:20	Gathering server audits
+18/06/2014 10:30:23	Scanning project for duplicate elements
+18/06/2014 10:30:23	Finished duplicate element processing
+18/06/2014 10:30:24	Finished importing database.
+18/06/2014 10:30:24	A summary of the import was saved to the following location: C:\Users\Martín\Downloads\ASP. NET Web API Tutorial 02 CRUD Operations\C#\ProdeSQLServer\Import Schema Logs\ProdeSQLServer_20140618012958.log
+18/06/2014 10:30:24	Click Finish to continue...
