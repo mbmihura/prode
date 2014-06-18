@@ -31,3 +31,7 @@ C:\Users\Martín\Downloads\ASP. NET Web API Tutorial 02 CRUD Operations\C#\Produ
 C:\Users\Martín\Downloads\ASP. NET Web API Tutorial 02 CRUD Operations\C#\ProductStore\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Martín\Downloads\ASP. NET Web API Tutorial 02 CRUD Operations\C#\ProductStore\bin\System.Web.WebPages.Razor.xml
 C:\Users\Martín\Downloads\ASP. NET Web API Tutorial 02 CRUD Operations\C#\ProductStore\bin\Images\background.jpg
+C:\Users\Martín\Downloads\ASP. NET Web API Tutorial 02 CRUD Operations\C#\ProductStore\bin\Scripts\bootstrap\fonts\glyphicons-halflings-regular.eot
+C:\Users\Martín\Downloads\ASP. NET Web API Tutorial 02 CRUD Operations\C#\ProductStore\bin\Scripts\bootstrap\fonts\glyphicons-halflings-regular.ttf
+C:\Users\Martín\Downloads\ASP. NET Web API Tutorial 02 CRUD Operations\C#\ProductStore\bin\Scripts\bootstrap\fonts\glyphicons-halflings-regular.woff
+C:\Users\Martín\Downloads\ASP. NET Web API Tutorial 02 CRUD Operations\C#\ProductStore\bin\Scripts\bootstrap\fonts\glyphicons-halflings-regular.svg

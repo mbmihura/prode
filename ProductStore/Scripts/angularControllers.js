@@ -7,7 +7,7 @@ angular.module('prodeApp')
   });
 
 angular.module('prodeApp')
-  .controller('HeaderController', function ($scope, $location) {
+  .controller('HeaderController', function ($scope, $location, Session) {
       $scope.isActive = function (viewLocation) {
           return viewLocation === $location.path();
       };
