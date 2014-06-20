@@ -1,11 +1,13 @@
 ﻿'use strict';
 
 angular.module('prodeApp')
-  .controller('MainCtrl', function ($scope, $routeParams, Session) {
-      Session.createFromUserId($routeParams.accessToken, function ()
-      { 
-          $scope.username = Session.userName;
-      });
+  .controller('MainCtrl', function ($scope, $routeParams, $http, Session) {
+      $scope.username = Session.getSession().userName;
+     
+      $http({ method: 'GET', url: 'api/positions/' }).
+               success(function (table, status, headers, config) {
+                   $scope.posiciones = table;
+               })
   });
 
 angular.module('prodeApp')
@@ -13,6 +15,9 @@ angular.module('prodeApp')
       $scope.isActive = function (viewLocation) {
           return viewLocation === $location.path();
       };
+      $scope.userLogged = function () {
+          return Session.userLogged();
+      }
   });
 
 angular.module('prodeApp')
@@ -74,45 +79,17 @@ angular.module('prodeApp')
 
 
 angular.module('prodeApp')
-    .controller('LoginCtrl', function ($scope, $rootScope, AUTH_EVENTS, AuthService) {
-
-        Session.createFromUserId($routeParams.accessToken);
-          
-        $scope.credentials = {
-            username: '',
-            password: ''
-        };
-        $scope.login = function (credentials) {
-            AuthService.login(credentials).then(function () {
-                $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
-            }, function () {
-                $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
+    .controller('LoginCtrl', function ($scope, $routeParams, $location, Authentication) {
+        $scope.token = '';
+        $scope.login = function (token) {
+            Authentication.loginWithToken(token).then(function () {
+                $location.path('/')
             });
         };
+        if ($routeParams.accessToken){
+            $scope.login($routeParams.accessToken)
+        }
     })
-    .constant('AUTH_EVENTS', {
-        loginSuccess: 'auth-login-success',
-        loginFailed: 'auth-login-failed',
-        logoutSuccess: 'auth-logout-success',
-        sessionTimeout: 'auth-session-timeout',
-        notAuthenticated: 'auth-not-authenticated'
-    })
-  //.controller('loginCtrl', function ($scope, Authentication) {
-  //    $scope.login = function () {
-  //        Authentication.login({ username: $scope.email, password: $scope.password }, function (response) {
-  //            window.location = '/';
-  //        }, function (error) {
-  //            if (error.status == 403)
-  //                alert("Usuario y/o contraseña incorrectos.");
-  //            else
-  //                alert("status: " + error.status + "  -  ")
-  //        });
-  //    }
-
-
-  //});
-
-
 
 angular.module('prodeApp')
   .controller('eliminatoriasCtrl', function ($scope, $location, BracketsPredicction, Session) {

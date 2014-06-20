@@ -1,14 +1,17 @@
-﻿<div class="container container-rounded" style="padding: 15px; background-color:white" >
-    <div class="header" ng-controller="HeaderController">
-      <ul class="nav nav-pills pull-right">
+﻿<div ng-controller="HeaderController">
+<div class="modal-backdrop fade in" ng-if="!userLogged()"></div>
+<div class="container container-rounded" style="padding: 15px; background-color:white; z-index: 20000; position: relative;" >
+    <div class="header">
+      <ul class="nav nav-pills pull-right" ng-show="userLogged()">
         <li ng-class="{ active: isActive('/grupos')}"><a ng-href="#/grupos">Grupos</a></li>
         <li ng-class="{ active: isActive('/eliminatorias')}"><a ng-href="#/eliminatorias">Eliminatorias</a></li>
         <li ng-class="{ active: isActive('/mejores')}"><a ng-href="#/mejores">Mejores</a></li>
-        <li><a ng-href="/logout">Salir</a></li>
+        <li ng-class="{ active: isActive('/')}"><a ng-href="#/">Posiciones</a></li>
       </ul>
       <img style="height: 75px" src="/images/brasil_2014.jpg">
     </div>
     <div ng-view=""></div>    
 </div>
+    </div>
 
    

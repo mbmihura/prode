@@ -46,16 +46,19 @@ angular
                }
            })
         .otherwise({
-            redirectTo: '/'
+            redirectTo: '/',
+            data: {
+                userRequired: true
+            }
         });
   })
-//.run(function ($rootScope, $location, AUTH_EVENTS, AuthService) {
-//    $rootScope.$on('$routeChangeStart', function (event, next, current) {
-//        var userRequired = next.data.userRequired;
-//        if (userRequired && !AuthService.isAuthenticated()) {
-//            $location.path("/login");
-//            // user is not allowed
-//            $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
-//        }
-//    });
-//});
+.run(function ($rootScope, $location, Authentication) {
+    $rootScope.$on('$routeChangeStart', function (event, next, current) {
+        var userRequired = next.data.userRequired;
+        if (userRequired && !Authentication.isAuthenticated()) {
+            // user is not allowed
+            $location.path("/login");
+            //$rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
+        }
+    });
+});
