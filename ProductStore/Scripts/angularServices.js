@@ -35,27 +35,34 @@ angular.module('prodeApp')
         this.isAuthenticated= function () {
             return !!Session.getSession().userId;
         }
+        this.logout = function () {
+            Session.destroy();
+        }
     }])
-    .service('Session', function ($cookies) {
+    .service('Session', function ($cookieStore) {
         this.create = function (user) {
             this.id = user.Id;
             this.userId = user.Id;
             this.userName = user.Username;
 
-            $cookies.id = this.id;
-            $cookies.userId = this.userId;
-            $cookies.userName = this.userName;
+            $cookieStore.put('session', {
+                id: this.id,
+                userId: this.userId,
+                userName: this.userName
+            });
         };
         this.userLogged = function () {
             return this.userId != null && this.userId != 0;
         };
         this.getSession = function () {
-            if (!this.id)
-                this.id = $cookies.id;
-            if (!this.userId)
-                this.userId = $cookies.userId;
-            if (!this.userName)
-                this.userName = $cookies.userName;
+            if (!this.userId) {
+                var sessionCookie = $cookieStore.get('session');
+                if (sessionCookie) {
+                    this.id = sessionCookie.id;
+                    this.userId = sessionCookie.userId;
+                    this.userName = sessionCookie.userName;
+                }
+            }
             return this;
         };
         this.destroy = function () {
@@ -63,9 +70,7 @@ angular.module('prodeApp')
             this.userId = null;
             this.userName = null;
 
-            $cookies.id = {};
-            $cookies.userId = {};
-            $cookies.userName = {};
+            $cookieStore.remove('session');
         };
         return this;
     });

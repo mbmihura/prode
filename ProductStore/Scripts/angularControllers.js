@@ -11,13 +11,17 @@ angular.module('prodeApp')
   });
 
 angular.module('prodeApp')
-  .controller('HeaderController', function ($scope, $location, Session) {
+  .controller('HeaderController', function ($scope, $location, Authentication, Session) {
       $scope.isActive = function (viewLocation) {
           return viewLocation === $location.path();
       };
       $scope.userLogged = function () {
           return Session.userLogged();
       }
+      $scope.logout = function () {
+          Authentication.logout();
+          $location.url('/login');
+      };
   });
 
 angular.module('prodeApp')
@@ -83,7 +87,7 @@ angular.module('prodeApp')
         $scope.token = '';
         $scope.login = function (token) {
             Authentication.loginWithToken(token).then(function () {
-                $location.path('/')
+                $location.url('/')
             });
         };
         if ($routeParams.accessToken){

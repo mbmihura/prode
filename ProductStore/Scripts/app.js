@@ -54,11 +54,13 @@ angular
   })
 .run(function ($rootScope, $location, Authentication) {
     $rootScope.$on('$routeChangeStart', function (event, next, current) {
-        var userRequired = next.data.userRequired;
-        if (userRequired && !Authentication.isAuthenticated()) {
-            // user is not allowed
-            $location.path("/login");
-            //$rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
+        if (next.data) {
+            var userRequired = next.data.userRequired;
+            if (userRequired && !Authentication.isAuthenticated()) {
+                // user is not allowed
+                $location.url("/login");
+                //$rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
+            }
         }
     });
 });
