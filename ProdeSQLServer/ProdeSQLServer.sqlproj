@@ -72,5 +72,6 @@
     <Build Include="dbo\Stored Procedures\getBracketsPredictionsForUserId.sql" />
     <Build Include="dbo\Stored Procedures\InsertPredictionsForBrackets.sql" />
     <Build Include="dbo\Stored Procedures\getUserDataForUserId.sql" />
+    <Build Include="dbo\Stored Procedures\getPosiciones.sql" />
   </ItemGroup>
 </Project>
