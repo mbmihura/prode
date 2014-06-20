@@ -3,7 +3,7 @@
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE InsertPredictionsForGroups
+CREATE PROCEDURE [dbo].[InsertPredictionsForGroups]
 	-- Add the parameters for the stored procedure here
 	@TeamV nvarchar(50),
 	@TeamL nvarchar(50),

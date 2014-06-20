@@ -27,4 +27,5 @@ BEGIN
 		LEFT JOIN [dbo].[PosiblesResultados] r ON r.id = s.resultado
 		LEFT JOIN [dbo].[Predicciones] p ON s.id = p.situacionId
 		LEFT JOIN [dbo].[PosiblesResultados] pt ON p.prediccion = pt.id
+	WHERE p.[userId] = @UserId
 END

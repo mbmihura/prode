@@ -4,17 +4,22 @@
 -- Description:	<Description,,>
 -- =============================================
 CREATE PROCEDURE [dbo].[insertResultForGroup]
-	@Sit nvarchar(50),
+	@TeamV nvarchar(50),
+	@TeamL nvarchar(50),
 	@Result nvarchar(50)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
+	DECLARE @desc nvarchar(50)
+	
+	SET @desc = @teamL + '/' + @teamV
+
 	DECLARE @SitId int
 	DECLARE @ResultId int
 
-	SELECT @SitId = [id] FROM [dbo].[Situaciones] WHERE [descripcion] = @Sit
+	SELECT @SitId = [id] FROM [dbo].[Situaciones] WHERE [descripcion] = @desc
 	SELECT @ResultId=[id] FROM [dbo].[PosiblesResultados] WHERE [resultado] = @Result
 
 	IF (@SitId IS NOT NULL AND @ResultId IS NOT NULL )
