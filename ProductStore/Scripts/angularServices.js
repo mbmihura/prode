@@ -16,6 +16,13 @@ angular.module('prodeApp').
           );
        }]);
 
+angular.module('prodeApp').
+       factory('Users', ['$resource', function ($resource) {
+           return $resource(
+               "/api/users"
+          );
+       }]);
+
 angular.module('prodeApp')
     .service('Authentication', ['$http', 'Session', function ($http, Session) {
         this.loginWithToken = function (token) {
@@ -23,6 +30,7 @@ angular.module('prodeApp')
                 method: 'GET',
                 url: '/api/authentication?token=' + token
             }).success(function (user, status, headers, config) {
+                //ga('set', '&uid', user.Id); // Establezca el ID de usuario mediante el user_id con el que haya iniciado sesion.
                 Session.create(user);
             }).error(function (data, status, headers, config) {
                 if (status == 404)

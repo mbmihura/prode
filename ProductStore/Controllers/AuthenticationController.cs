@@ -52,9 +52,9 @@ namespace Prode.Controllers
         // POST api/authentication
         public void Post([FromBody]User newUser)
         {
-            if (!newUser.SingUp()) {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
-            };
+            //if (!newUser.SingUp()) {
+            //    throw new HttpResponseException(HttpStatusCode.BadRequest);
+            //};
         }
 
         // PUT api/authentication/

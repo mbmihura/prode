@@ -6,6 +6,7 @@ angular
     'ngResource',
     'ngSanitize',
     'ngRoute',
+    'ui.bootstrap',
     'TimeAgoModule'
   ])
   .config(function ($routeProvider) {
@@ -62,5 +63,7 @@ angular
                 //$rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
             }
         }
+        var dimensionValue = 'page redirecct';
+        ga('set', 'dimension2', dimensionValue);
     });
 });

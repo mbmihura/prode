@@ -1,4 +1,14 @@
-﻿<table style="margin: auto;">
+﻿<!-- Selector control -->
+    <div class="btn-group" dropdown is-open="status.isopen">
+      <button type="button" class="btn btn-default dropdown-toggle" ng-disabled="disabled">
+        {{displayingUser}} <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li ng-repeat="u in users"><a href="#/eliminatorias?view={{u.Id}}">{{u.Username}}</a></li>
+      </ul>
+    </div>
+
+<table style="margin: auto;">
     <thead>
         <tr>
             <th class="col-sm-1">Octavos</th>

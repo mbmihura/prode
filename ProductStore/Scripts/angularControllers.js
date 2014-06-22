@@ -25,8 +25,29 @@ angular.module('prodeApp')
   });
 
 angular.module('prodeApp')
-  .controller('GroupsPredictionsCtrl', function ($scope, $timeout, GroupsPredicction, Session) {
-      var response = GroupsPredicction.query({ userId: Session.getSession().userId }, function () {
+  .controller('GroupsPredictionsCtrl', function ($scope, $timeout, $routeParams, GroupsPredicction, Session, Users) {
+      var userId = $routeParams.view ? $routeParams.view : Session.getSession().userId;
+
+      $scope.users = Users.query(function (data) {
+          data.forEach(function(e) {
+              if (e.Id == userId) {
+                  $scope.displayingUser = e.Username;
+              };
+          });
+      });
+      
+
+      $scope.status = {
+          isopen: false
+      };
+
+      $scope.toggleDropdown = function ($event) {
+          $event.preventDefault();
+          $event.stopPropagation();
+          $scope.status.isopen = !$scope.status.isopen;
+      };
+
+      var response = GroupsPredicction.query({ userId: userId }, function () {
           $scope.predictions = [{
               Letter: 'A',
               Matches: $.grep(response, function (n, i) {
@@ -74,6 +95,8 @@ angular.module('prodeApp')
           }
           $scope.subtotal = t;
       });
+
+
   });
 
 angular.module('prodeApp')
@@ -96,9 +119,29 @@ angular.module('prodeApp')
     })
 
 angular.module('prodeApp')
-  .controller('eliminatoriasCtrl', function ($scope, $location, BracketsPredicction, Session) {
+  .controller('eliminatoriasCtrl', function ($scope, $location, $routeParams, BracketsPredicction, Users, Session) {
+      var userId = $routeParams.view ? $routeParams.view : Session.getSession().userId;
 
-      var matches = BracketsPredicction.get({ userId: Session.userId }, function () {
+      $scope.users = Users.query(function (data) {
+          data.forEach(function (e) {
+              if (e.Id == userId) {
+                  $scope.displayingUser = e.Username;
+              };
+          });
+      });
+
+
+      $scope.status = {
+          isopen: false
+      };
+
+      $scope.toggleDropdown = function ($event) {
+          $event.preventDefault();
+          $event.stopPropagation();
+          $scope.status.isopen = !$scope.status.isopen;
+      };
+
+      var matches = BracketsPredicction.get({ userId: userId }, function () {
           $scope.matches = matches;
       });
   });
