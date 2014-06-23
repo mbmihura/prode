@@ -1,0 +1,18 @@
+﻿ <div class="modal-header">
+            <h3 class="modal-title">Guardar Resultado</h3>
+        </div>
+        <div class="modal-body">
+            <!-- Single button -->
+            {{text}} <div class="btn-group" dropdown is-open="status.isopen">
+              <button type="button" class="btn btn-default dropdown-toggle" ng-disabled="disabled">
+                {{selectedResult.Description}} <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li ng-repeat="r in results"><a ng-click="select(r)"><span ng-if="r.isActiveResult" class="glyphicon glyphicon-ok pull-right"></span>{{r.Description}}</a></li>
+              </ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok(selectedResult)">OK</button>
+            <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+        </div>

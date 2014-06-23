@@ -142,6 +142,7 @@
     <Compile Include="Models\Prediction.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductRepository.cs" />
+    <Compile Include="Models\Results.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserCredentials.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -202,6 +203,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\views\editResultModal.html" />
     <Content Include="Content\views\eliminatorias.html" />
     <Content Include="Content\views\login.html" />
     <Content Include="Content\views\main.html" />

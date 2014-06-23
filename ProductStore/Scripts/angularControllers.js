@@ -22,10 +22,48 @@ angular.module('prodeApp')
           Authentication.logout();
           $location.url('/login');
       };
+  })
+    .controller('EditResultModalCtrl', function ($scope, $modalInstance, GroupsPosibleResults, situation, situationText) {
+
+        $scope.results = GroupsPosibleResults.query({ situationId: situation.Id }, function (data) {
+          data.forEach(function (pr) {
+              if (pr.IsActualResult) {
+                  $scope.selectedResult = pr;
+              };
+          });
+      });
+
+      $scope.text = 'Resultado para ' + situationText + ':';
+
+      $scope.status = {
+          isopen: false
+      };
+
+      $scope.toggleDropdown = function ($event) {
+          $event.preventDefault();
+          $event.stopPropagation();
+          $scope.status.isopen = !$scope.status.isopen;
+      };
+
+      $scope.select = function (r) {
+          $scope.selectedResult = r;
+          $scope.status.isopen = false;
+      }
+      
+      $scope.ok = function (result) {
+          situation.Resultado = result.Description;
+          var a = situation.$save().finally(function () {
+            $modalInstance.close(result);
+          });
+      };
+
+      $scope.cancel = function () {
+          $modalInstance.dismiss('cancel');
+      };
   });
 
 angular.module('prodeApp')
-  .controller('GroupsPredictionsCtrl', function ($scope, $timeout, $routeParams, GroupsPredicction, Session, Users) {
+  .controller('GroupsPredictionsCtrl', function ($scope, $timeout, $routeParams, $modal, $log, GroupsPredicction, Session, Users) {
       var userId = $routeParams.view ? $routeParams.view : Session.getSession().userId;
 
       $scope.users = Users.query(function (data) {
@@ -96,7 +134,33 @@ angular.module('prodeApp')
           $scope.subtotal = t;
       });
 
+      $scope.alerts = [];
+      $scope.closeAlert = function (index) {
+          $scope.alerts.splice(index, 1);
+      };
 
+      $scope.showEditResults = true;
+      $scope.open = function (situation) {
+
+          var modalInstance = $modal.open({
+              templateUrl: 'Content/views/editResultModal.html',
+              controller: 'EditResultModalCtrl',
+              resolve: {
+                  situation: function () {
+                      return situation;
+                  }, situationText: function () {
+                      return situation.TeamL + ' - ' + situation.TeamV + ' (Grupo ' + situation.Letter + ')';
+                  }
+              }
+          });
+
+          modalInstance.result.then(function (selectedItem) {
+              $scope.alerts.push({ type: 'warning', strong: 'Resultado guardado. ', msg: 'Recargar la pagina para ver el nuevo puntaje.' });
+              situation.Resultado = selectedItem.Description;
+          }, function () {
+              $log.info('Modal dismissed at: ' + new Date());
+          });
+      };
   });
 
 angular.module('prodeApp')
@@ -145,3 +209,4 @@ angular.module('prodeApp')
           $scope.matches = matches;
       });
   });
+

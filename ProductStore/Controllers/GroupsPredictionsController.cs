@@ -16,19 +16,17 @@ namespace Prode.Controllers
             return GroupMatchPrediction.GetByUser(userId);
         }
 
-        // POST api/groupspredictions
-        public void Post([FromBody]string value)
+        // GET api/bracketspredictions
+        public List<Result> GetPosibleResult(int situationId)
         {
+            return Result.GetAllPosibleResultsForGroup(situationId);
         }
 
         // PUT api/groupspredictions/5
-        public void Put(int id, [FromBody]string value)
+        [HttpPost]
+        public void GetPosibleResult(int id, string resultado)
         {
-        }
-
-        // DELETE api/groupspredictions/5
-        public void Delete(int id)
-        {
+            Result.SetResultForSituation(id, resultado);
         }
     }
 }

@@ -82,18 +82,14 @@ namespace Prode.Controllers
             };
         }
 
-        // POST api/bracketspredictions
-        public void Post([FromBody]string value)
+        // GET api/bracketspredictions
+        public List<Result> GetPosibleResult(int situationId)
         {
+            return Result.GetAllPosibleResultsForBrackets(situationId);
         }
 
         // PUT api/bracketspredictions/5
         public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/bracketspredictions/5
-        public void Delete(int id)
         {
         }
     }

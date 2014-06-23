@@ -4,24 +4,26 @@ angular.module('prodeApp').
        factory('GroupsPredicction', ['$resource', function ($resource) {
            return $resource(
                "/api/groupspredictions",
-               {userId: '@userId'}
+               { userId: '@userId', id: '@Id', resultado: '@Resultado' }
           );
-       }]);
-
-angular.module('prodeApp').
+       }]).
        factory('BracketsPredicction', ['$resource', function ($resource) {
            return $resource(
                "/api/bracketspredictions",
                { userId: '@userId' }
           );
-       }]);
-
-angular.module('prodeApp').
+       }]).
        factory('Users', ['$resource', function ($resource) {
            return $resource(
                "/api/users"
           );
-       }]);
+       }]).
+       factory('GroupsPosibleResults', ['$resource', function ($resource) {
+           return $resource("/api/groupspredictions/GetPosibleResults", { situationId: '@situationId' });
+       }]).
+         factory('BracketsPosibleResults', ['$resource', function ($resource) {
+             return $resource("/api/bracketspredictions/GetPosibleResult", { situationId: '@situationId' });
+         }]);
 
 angular.module('prodeApp')
     .service('Authentication', ['$http', 'Session', function ($http, Session) {

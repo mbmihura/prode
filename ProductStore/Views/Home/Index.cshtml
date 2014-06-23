@@ -1,6 +1,6 @@
 ﻿<div ng-controller="HeaderController">
-<div class="modal-backdrop fade in" ng-if="!userLogged()"></div>
-<div class="container container-rounded" style="padding: 15px; background-color:white; z-index: 20000; position: relative;" >
+<div class="modal-backdrop fade in" ng-if="!userLogged()" style="z-index: 0;"></div>
+<div class="container container-rounded" style="padding: 15px; background-color:white; position: relative;" >
     <div class="header">
       <ul class="nav nav-pills pull-right" ng-show="userLogged()">
         <li ng-class="{ active: isActive('/grupos')}"><a ng-href="#/grupos">Grupos</a></li>

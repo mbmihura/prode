@@ -1,15 +1,21 @@
 <div ng-hide="true" class="alert alert-warning">
     Algunos Partidos fueron jugados pero todavia no se cargaron sus resutlados.
 </div>
+<div>
+  <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)"><strong>{{alert.strong}}</strong>{{alert.msg}}</alert>
+</div>
+
 <!-- Single button -->
     <div class="btn-group" dropdown is-open="status.isopen">
       <button type="button" class="btn btn-default dropdown-toggle" ng-disabled="disabled">
         {{displayingUser}} <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" role="menu">
-        <li ng-repeat="u in users"><a href="#/grupos?view={{u.Id}}">{{u.Username}}</a></li>
+        <li ng-repeat="u in users"><a href="#/grupos?view={{u.Id}}"><span ng-if="u.Username == displayingUser" class="glyphicon glyphicon-ok pull-right"></span>{{u.Username}}</a></li>
       </ul>
     </div>
+
+  
 
 <div ng-repeat="p in predictions">
 <h3 class="sub-header">Grupo {{p.Letter}} <small></small></h3>
@@ -24,6 +30,7 @@
           <th class="col-sm-2" style="text-align: right">Visitante</th>
           <th class="col-sm-1"></th>
           <th class="col-sm-5" style="text-align: center">Puntos Ganados</th>
+          <th class="col-sm-5" ng-if="showEditResults" style="text-align: center">Resultados</th>
         </tr>
       </thead>
       <tbody>
@@ -59,6 +66,7 @@
           <td style="font-style: italic;text-align: center">
               <span ng-show="m.PuntosGanados == null">-</span>
               <span ng-show="m.PuntosGanados != null" ng-class="{'label-danger': (m.PuntosGanados == 0), 'label-success': (m.PuntosGanados > 0)}" class="label">{{m.PuntosGanados > 0? ('+ ' + m.PuntosGanados):m.PuntosGanados}}</span></td>
+          <td ng-if="showEditResults"><button class="btn btn-link" ng-click="open(m)"><span class="glyphicon glyphicon-edit"></span> Editar</button></td>
         </tr>
       </tbody>
     </table>
@@ -90,4 +98,7 @@
       </tbody>
   </table>
 
+
+
+  
 
