@@ -22,7 +22,7 @@ angular.module('prodeApp').
            return $resource("/api/groupspredictions/GetPosibleResults", { situationId: '@situationId' });
        }]).
          factory('BracketsPosibleResults', ['$resource', function ($resource) {
-             return $resource("/api/bracketspredictions/GetPosibleResult", { situationId: '@situationId' });
+             return $resource("/api/bracketspredictions/GetPosibleResult", { situationId: '@situationId', result: '@Description' });
          }]);
 
 angular.module('prodeApp')

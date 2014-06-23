@@ -30,7 +30,7 @@
           <th class="col-sm-2" style="text-align: right">Visitante</th>
           <th class="col-sm-1"></th>
           <th class="col-sm-5" style="text-align: center">Puntos Ganados</th>
-          <th class="col-sm-5" ng-if="showEditResults" style="text-align: center">Resultados</th>
+          <th class="col-sm-5" ng-if="showEditOption" style="text-align: center">Resultados</th>
         </tr>
       </thead>
       <tbody>
@@ -66,7 +66,7 @@
           <td style="font-style: italic;text-align: center">
               <span ng-show="m.PuntosGanados == null">-</span>
               <span ng-show="m.PuntosGanados != null" ng-class="{'label-danger': (m.PuntosGanados == 0), 'label-success': (m.PuntosGanados > 0)}" class="label">{{m.PuntosGanados > 0? ('+ ' + m.PuntosGanados):m.PuntosGanados}}</span></td>
-          <td ng-if="showEditResults"><button class="btn btn-link" ng-click="open(m)"><span class="glyphicon glyphicon-edit"></span> Editar</button></td>
+          <td ng-if="showEditOption"><button class="btn btn-link" ng-click="open(m)"><span class="glyphicon glyphicon-edit"></span> Editar</button></td>
         </tr>
       </tbody>
     </table>

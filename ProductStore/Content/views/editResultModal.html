@@ -8,7 +8,7 @@
                 {{selectedResult.Description}} <span class="caret"></span>
               </button>
               <ul class="dropdown-menu" role="menu">
-                <li ng-repeat="r in results"><a ng-click="select(r)"><span ng-if="r.isActiveResult" class="glyphicon glyphicon-ok pull-right"></span>{{r.Description}}</a></li>
+                <li ng-repeat="r in results"><a ng-click="select(r)"><span ng-show="r.Id == selectedResult.Id" class="glyphicon glyphicon-ok pull-right"></span>{{r.Description}}</a></li>
               </ul>
             </div>
         </div>

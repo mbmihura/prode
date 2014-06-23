@@ -1,4 +1,8 @@
-﻿<!-- Selector control -->
+﻿<div>
+  <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)"><strong>{{alert.strong}}</strong>{{alert.msg}}</alert>
+</div>
+
+<!-- Selector control -->
     <div class="btn-group" dropdown is-open="status.isopen">
       <button type="button" class="btn btn-default dropdown-toggle" ng-disabled="disabled">
         {{displayingUser}} <span class="caret"></span>
@@ -23,7 +27,7 @@
     <tbody>
         <tr>
             <td class="bracket-team-cell brackets-bottom-line">
-                 {{matches.A1.Prediccion}} 
+                 {{matches.A1.Prediccion}} <button class="btn btn-link" ng-if="showEditOption" ng-click="open(matches.A1)"><span class="glyphicon glyphicon-edit"></span> Editar</button>
                  <span ng-show="matches.A1.PuntosGanados > 0" class="label label-success">+{{matches.A1.PuntosGanados}}</span>
                  <span ng-show="matches.A1.PuntosGanados == 0" class="label label-danger">{{matches.A1.PuntosGanados}}</span>
             </td>

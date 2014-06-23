@@ -23,9 +23,9 @@ angular.module('prodeApp')
           $location.url('/login');
       };
   })
-    .controller('EditResultModalCtrl', function ($scope, $modalInstance, GroupsPosibleResults, situation, situationText) {
+    .controller('EditResultModalCtrl', function ($scope, $modalInstance, situationText, resourceClass, resourceId) {
 
-        $scope.results = GroupsPosibleResults.query({ situationId: situation.Id }, function (data) {
+        $scope.results = resourceClass.query({ situationId: resourceId }, function (data) {
           data.forEach(function (pr) {
               if (pr.IsActualResult) {
                   $scope.selectedResult = pr;
@@ -51,10 +51,7 @@ angular.module('prodeApp')
       }
       
       $scope.ok = function (result) {
-          situation.Resultado = result.Description;
-          var a = situation.$save().finally(function () {
-            $modalInstance.close(result);
-          });
+          $modalInstance.close(result);
       };
 
       $scope.cancel = function () {
@@ -63,7 +60,7 @@ angular.module('prodeApp')
   });
 
 angular.module('prodeApp')
-  .controller('GroupsPredictionsCtrl', function ($scope, $timeout, $routeParams, $modal, $log, GroupsPredicction, Session, Users) {
+  .controller('GroupsPredictionsCtrl', function ($scope, $timeout, $routeParams, $modal, $log, GroupsPredicction, GroupsPosibleResults, Session, Users) {
       var userId = $routeParams.view ? $routeParams.view : Session.getSession().userId;
 
       $scope.users = Users.query(function (data) {
@@ -139,24 +136,28 @@ angular.module('prodeApp')
           $scope.alerts.splice(index, 1);
       };
 
-      $scope.showEditResults = true;
+      $scope.showEditOption = true;
       $scope.open = function (situation) {
 
           var modalInstance = $modal.open({
               templateUrl: 'Content/views/editResultModal.html',
               controller: 'EditResultModalCtrl',
               resolve: {
-                  situation: function () {
-                      return situation;
-                  }, situationText: function () {
+                  situationText: function () {
                       return situation.TeamL + ' - ' + situation.TeamV + ' (Grupo ' + situation.Letter + ')';
+                  }, resourceClass: function () {
+                      return GroupsPosibleResults
+                  }, resourceId: function () {
+                      return situation.Id;
                   }
               }
           });
 
-          modalInstance.result.then(function (selectedItem) {
-              $scope.alerts.push({ type: 'warning', strong: 'Resultado guardado. ', msg: 'Recargar la pagina para ver el nuevo puntaje.' });
-              situation.Resultado = selectedItem.Description;
+          modalInstance.result.then(function (result) {
+              situation.Resultado = result.Description;
+              var a = situation.$save().finally(function () {
+                  $scope.alerts.push({ type: 'warning', strong: 'Resultado guardado. ', msg: 'Recargar la pagina para ver el nuevo puntaje.' });
+              });
           }, function () {
               $log.info('Modal dismissed at: ' + new Date());
           });
@@ -183,7 +184,7 @@ angular.module('prodeApp')
     })
 
 angular.module('prodeApp')
-  .controller('eliminatoriasCtrl', function ($scope, $location, $routeParams, BracketsPredicction, Users, Session) {
+  .controller('eliminatoriasCtrl', function ($scope, $location, $routeParams, $modal, $log, BracketsPredicction, BracketsPosibleResults, Users, Session) {
       var userId = $routeParams.view ? $routeParams.view : Session.getSession().userId;
 
       $scope.users = Users.query(function (data) {
@@ -208,5 +209,37 @@ angular.module('prodeApp')
       var matches = BracketsPredicction.get({ userId: userId }, function () {
           $scope.matches = matches;
       });
+
+      $scope.alerts = [];
+      $scope.closeAlert = function (index) {
+          $scope.alerts.splice(index, 1);
+      };
+
+      $scope.showEditOption = true;
+      $scope.open = function (situation) {
+
+          var modalInstance = $modal.open({
+              templateUrl: 'Content/views/editResultModal.html',
+              controller: 'EditResultModalCtrl',
+              resolve: {
+                  situationText: function () {
+                      return situation.Key + ' (Etapa ' + situation.Etapa + ')';
+                  }, resourceClass: function () {
+                      return BracketsPosibleResults
+                  }, resourceId: function () {
+                      return situation.Id;
+                  }
+              }
+          });
+
+          modalInstance.result.then(function (result) {
+              result.situationId = situation.Id;
+              var a = result.$save().finally(function () {
+                  $scope.alerts.push({ type: 'warning', strong: 'Resultado guardado. ', msg: 'Recargar la pagina para ver el nuevo puntaje.' });
+              });
+          }, function () {
+              $log.info('Modal dismissed at: ' + new Date());
+          });
+      };
   });
 

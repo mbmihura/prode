@@ -89,8 +89,10 @@ namespace Prode.Controllers
         }
 
         // PUT api/bracketspredictions/5
-        public void Put(int id, [FromBody]string value)
+        [HttpPost]
+        public void GetPosibleResult(int situationId, string result)
         {
+            Result.SetResultForSituation(situationId, result);
         }
     }
 }
