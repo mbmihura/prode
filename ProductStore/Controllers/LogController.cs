@@ -20,6 +20,14 @@ namespace ProductStore.Controllers
         public void Post(LogEntry entry)
         {
             var req = ((System.Web.HttpContextWrapper)this.Request.Properties["MS_HttpContext"]).Request;
+
+            // Look for a proxy address first
+            String _ip = req.ServerVariables["HTTP_X_FORWARDED_FOR"];
+
+            // If there is no proxy, get the standard remote address
+            if (_ip == null || _ip == "" || _ip.ToLower() == "unknown")
+	            _ip = req.ServerVariables["REMOTE_ADDR"];
+
             var ip = req.UserHostAddress;
             var userAgent = req.UserAgent;
             using(SqlConnection conn = new SqlConnection(connectionString))
