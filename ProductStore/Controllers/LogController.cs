@@ -21,10 +21,7 @@ namespace ProductStore.Controllers
         {
             var req = ((System.Web.HttpContextWrapper)this.Request.Properties["MS_HttpContext"]).Request;
             string ip = "unknown";
-            if (req.ServerVariables.AllKeys.Contains("REMOTE_ADDR"))
-            {
-                ip = "REMOTE_ADDR: " + req.ServerVariables["REMOTE_ADDR"];
-            } else if (req.ServerVariables.AllKeys.Contains("HTTPXForwardedFor"))
+            if (req.ServerVariables.AllKeys.Contains("HTTPXForwardedFor"))
             {
                 ip =  "XForward: " + req.ServerVariables["HTTPXForwardedFor"];
             }
