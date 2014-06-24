@@ -1,4 +1,5 @@
 ﻿'use strict';
+var prevRes;
 
 angular.module('prodeApp')
   .controller('MainCtrl', function ($scope, $routeParams, $http, Session) {
@@ -8,6 +9,7 @@ angular.module('prodeApp')
                success(function (table, status, headers, config) {
                    $scope.posiciones = table;
                })
+      log('pageView', 'Position');
   });
 
 angular.module('prodeApp')
@@ -25,13 +27,16 @@ angular.module('prodeApp')
   })
     .controller('EditResultModalCtrl', function ($scope, $modalInstance, situationText, resourceClass, resourceId) {
 
+        
         $scope.results = resourceClass.query({ situationId: resourceId }, function (data) {
           data.forEach(function (pr) {
               if (pr.IsActualResult) {
                   $scope.selectedResult = pr;
+                  prevRes = $scope.selectedResult.Description;
               };
           });
-      });
+        });
+
 
       $scope.text = 'Resultado para ' + situationText + ':';
 
@@ -57,6 +62,8 @@ angular.module('prodeApp')
       $scope.cancel = function () {
           $modalInstance.dismiss('cancel');
       };
+
+      log('pageView', 'EditResult');
   });
 
 angular.module('prodeApp')
@@ -154,19 +161,23 @@ angular.module('prodeApp')
           });
 
           modalInstance.result.then(function (result) {
+              var prevRes = situation.Resultado;
               situation.Resultado = result.Description;
               var a = situation.$save().finally(function () {
                   $scope.alerts.push({ type: 'warning', strong: 'Resultado guardado. ', msg: 'Recargar la pagina para ver el nuevo puntaje.' });
+                  log('saveGroupResult', 'SitId:' + situation.Id + ' res:' + prevRes + '->' + result.Description);
               });
           }, function () {
               $log.info('Modal dismissed at: ' + new Date());
           });
       };
+
+      log('pageView', 'Groups For User:' + userId);
   });
 
 angular.module('prodeApp')
   .controller('MejoresCtrl', function ($scope, $location, Session) {
-
+      log('pageView', 'Mejores');
   });
 
 
@@ -181,6 +192,7 @@ angular.module('prodeApp')
         if ($routeParams.accessToken){
             $scope.login($routeParams.accessToken)
         }
+        log('pageView', 'Login');
     })
 
 angular.module('prodeApp')
@@ -236,10 +248,13 @@ angular.module('prodeApp')
               result.situationId = situation.Id;
               var a = result.$save().finally(function () {
                   $scope.alerts.push({ type: 'warning', strong: 'Resultado guardado. ', msg: 'Recargar la pagina para ver el nuevo puntaje.' });
+                  log('saveBracketResult', 'SitId:' + situation.Id + ' res:' + prevRes + '->' + result.Description);
               });
           }, function () {
               $log.info('Modal dismissed at: ' + new Date());
           });
       };
+
+      log('pageView', 'Eliminatorias For User:' + userId);
   });
 

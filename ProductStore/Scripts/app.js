@@ -1,5 +1,13 @@
 'use strict';
 
+var logCurrentUser = 0;
+function log(type, description) {
+    $.ajax({
+        url: '/api/log', type: 'POST', contentType: "application/json",
+        data: JSON.stringify({ userId: logCurrentUser, type: type, desc: description })
+    })
+}
+
 angular
   .module('prodeApp', [
     'ngCookies',

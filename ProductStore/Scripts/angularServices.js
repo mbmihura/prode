@@ -60,6 +60,9 @@ angular.module('prodeApp')
                 userId: this.userId,
                 userName: this.userName
             });
+
+            logCurrentUser = user.Id;
+            log('logIn', '');
         };
         this.userLogged = function () {
             return this.userId != null && this.userId != 0;
@@ -73,9 +76,14 @@ angular.module('prodeApp')
                     this.userName = sessionCookie.userName;
                 }
             }
+            logCurrentUser = this.id;
             return this;
         };
         this.destroy = function () {
+
+            log('logOut', '');
+            logCurrentUser = 0;
+            
             this.id = null;
             this.userId = null;
             this.userName = null;
@@ -83,4 +91,5 @@ angular.module('prodeApp')
             $cookieStore.remove('session');
         };
         return this;
-    });
+    })
+    
