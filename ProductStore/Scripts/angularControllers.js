@@ -136,7 +136,7 @@ angular.module('prodeApp')
           $scope.alerts.splice(index, 1);
       };
 
-      $scope.showEditOption = true;
+      $scope.showEditOption = false;
       $scope.open = function (situation) {
 
           var modalInstance = $modal.open({
