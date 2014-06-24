@@ -19,6 +19,9 @@ namespace ProductStore.Controllers
         // POST api/log
         public void Post(LogEntry entry)
         {
+            var req = ((System.Web.HttpContextWrapper)this.Request.Properties["MS_HttpContext"]).Request;
+            var ip = req.UserHostAddress;
+            var userAgent = req.UserAgent;
             using(SqlConnection conn = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand("insertEventToLog", conn))
             {
@@ -29,6 +32,8 @@ namespace ProductStore.Controllers
                 cmd.Parameters.Add(new SqlParameter("@userId", entry.userId));
                 cmd.Parameters.Add(new SqlParameter("@type", entry.type));
                 cmd.Parameters.Add(new SqlParameter("@desc", entry.desc));
+                cmd.Parameters.Add(new SqlParameter("@ip", ip));
+                cmd.Parameters.Add(new SqlParameter("@userAgent", userAgent));
 
                 // execute the command
                 conn.Open();
