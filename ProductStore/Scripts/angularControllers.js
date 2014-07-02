@@ -176,8 +176,13 @@ angular.module('prodeApp')
   });
 
 angular.module('prodeApp')
-  .controller('MejoresCtrl', function ($scope, $location, Session) {
-      log('pageView', 'Mejores');
+  .controller('MejoresCtrl', function ($scope, $location, Session, MejoresPredicction) {
+      var userId = Session.getSession().userId;
+
+      $scope.currentUserId = userId;
+      $scope.predictions = MejoresPredicction.query({ userId: userId });
+
+      log('pageView', 'Mejores For User:' + userId);
   });
 
 

@@ -126,6 +126,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\LogController.cs" />
+    <Compile Include="Controllers\MejoresController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\PositionsController.cs" />
     <Compile Include="Models\BracketsPrediction.cs" />
@@ -138,6 +139,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\LogEntry.cs" />
+    <Compile Include="Models\Mejores.cs" />
     <Compile Include="Models\Position.cs" />
     <Compile Include="Models\GroupMatchPrediction.cs" />
     <Compile Include="Models\IProductRepository.cs" />

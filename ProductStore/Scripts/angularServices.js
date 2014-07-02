@@ -13,6 +13,12 @@ angular.module('prodeApp').
                { userId: '@userId' }
           );
        }]).
+    factory('MejoresPredicction', ['$resource', function ($resource) {
+        return $resource(
+            "/api/mejores",
+            { userId: '@userId' }
+       );
+    }]).
        factory('Users', ['$resource', function ($resource) {
            return $resource(
                "/api/users"

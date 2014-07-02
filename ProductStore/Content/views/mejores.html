@@ -1,43 +1,42 @@
-﻿<h1 style="margin-bottom: 15px;text-align: center;">Mejores <small>Proximamente (Si vuelvo a estar al pedo)</small></h1>
+﻿<h1 style="margin-bottom: 15px;text-align: center;">Mejores</h1>
 <table class="table table-striped" style="width: 90%;margin: auto;margin-bottom: 25px;">
 	<thead>
         <tr>
-          <th class="col-sm-1">Categoria</th>
-          <th class="col-sm-1">Esperado</th>
-          <th class="col-sm-1">Resultado</th>
-          <th class="col-sm-1">Pts. Ganados</th>
+          <th class="col-sm-1">Usuario</th>
+          <th class="col-sm-1">Campeon</th>
+          <th class="col-sm-1">Goleador</th>
+          <th class="col-sm-1">Mejor Jugador</th>
+            <th class="col-sm-1">Sorpresa</th>
+            <th class="col-sm-1">Puntos Ganados</th>
         </tr>
       </thead>
    <tbody>
-        <tr>
-          <td>Campeon</td>
-          <td></td>
-          <td></td>
-          <td></td> 
+        <tr ng-repeat="p in predictions">
+            <td>{{p.username}}</td>
+            <td>{{p.campeon.Prediction}} 
+                <span ng-show="p.campeon.PtosGanados > 0" class="label label-success">+ {{p.campeon.PtosGanados}}</span>
+                <span ng-show="p.campeon.PtosGanados == 0" class="label label-danger">{{p.campeon.PtosGanados}}</span></td>
+            <td>{{p.goleador.Prediction}} 
+                <span ng-show="p.goleador.PtosGanados > 0" class="label label-success">+ {{p.goleador.PtosGanados}}</span>
+                <span ng-show="p.goleador.PtosGanados == 0" class="label label-danger">{{p.goleador.PtosGanados}}</span>
+            </td>
+            <td>{{p.mejor.Prediction}} 
+                <span ng-show="p.mejor.PtosGanados > 0" class="label label-success">+ {{p.mejor.PtosGanados}}</span>
+                <span ng-show="p.mejor.PtosGanados == 0" class="label label-danger">{{p.mejor.PtosGanados}}</span>
+            </td>
+            <td>{{p.sorpresa.Prediction}} 
+                <span ng-show="p.sorpresa.PtosGanados > 0" class="label label-success">+ {{p.sorpresa.PtosGanados}}</span>
+                <span ng-show="p.sorpresa.PtosGanados == 0" class="label label-danger">{{p.sorpresa.PtosGanados}}</span>
+            </td>
+            <td>{{p.campeon.PtosGanados + p.goleador.PtosGanados + p.mejor.PtosGanados + p.sorpresa.PtosGanados}}</td>
      	</tr>
-        <tr>
-          <td>Goleador</td>
-          <td></td>
-          <td></td>
-          <td></td> 
-     	</tr>
-        <tr>
-          <td>Mejor Jugador</td>
-          <td></td>
-          <td></td>
-          <td></td> 
-     	</tr>
-        <tr>
-          <td>Sorpresa</td>
-          <td></td>
-          <td></td>
-          <td></td> 
-     	</tr>
+        
        <tr>
-          <td style="font-weight:bold">Subtotal Mejores</td>
-          <td></td>
-          <td></td>
-          <td></td> 
+          <td style="font-weight:bold">Resultados Mejores</td>
+          <td>{{predictions[0].campeon.Real}}</td>
+          <td>{{predictions[0].goleador.Real}}</td>
+          <td>{{predictions[0].mejor.Real}}</td>
+          <td>{{predictions[0].sorpresa.Real}}</td>
      	</tr>
     
      </tbody>
